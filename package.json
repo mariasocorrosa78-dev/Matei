@@ -1,0 +1,17 @@
+{
+  "name": "discord-moderation-ticket-bot",
+  "version": "1.0.0",
+  "description": "Bot Discord de moderação, embeds e tickets para GitHub + Railway.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "deploy": "node deploy-commands.js"
+  },
+  "engines": {
+    "node": ">=18.18.0"
+  },
+  "dependencies": {
+    "discord.js": "^14.27.0",
+    "dotenv": "^17.2.2"
+  }
+}
