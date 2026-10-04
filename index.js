@@ -9,8 +9,11 @@ const {
   ActionRowBuilder,
   ButtonBuilder,
   ButtonStyle,
-  StringSelectMenuBuilder,
-  UserSelectMenuBuilder
+    StringSelectMenuBuilder,
+  UserSelectMenuBuilder,
+  REST,
+  Routes,
+  SlashCommandBuilder
 } = require("discord.js");
 
 const config = require("./config");
@@ -483,5 +486,21 @@ client.on(Events.InteractionCreate, async interaction => {
 
 process.on("unhandledRejection", console.error);
 process.on("uncaughtException", console.error);
+process.on("unhandledRejection", console.error);
+process.on("uncaughtException", console.error);
 
+const commands = [
+  // ... código acima ...
+];
+
+const rest = new REST({ version: "10" }).setToken(config.token);
+
+rest.put(
+  Routes.applicationGuildCommands(config.clientId, config.guildId),
+  { body: commands }
+)
+  .then(() => console.log("Comandos registrados com sucesso."))
+  .catch(console.error);
+
+client.login(config.token);
 client.login(config.token);
